@@ -1111,6 +1111,7 @@ GameObject:
   - component: {fileID: 756971193}
   - component: {fileID: 756971194}
   - component: {fileID: 756971195}
+  - component: {fileID: 756971196}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -1235,7 +1236,7 @@ MonoBehaviour:
   swimRayDistance: 3
   rb: {fileID: 756971193}
   fishingTrigger: {fileID: 897161131}
-  rod: {fileID: 1623855599}
+  fishDecider: {fileID: 756971196}
   maxSwimSpeed: 5
   minSwimSpeed: 2
   maxTurnSpeed: 0.7
@@ -1248,6 +1249,7 @@ MonoBehaviour:
   caught: 0
   failed: 0
   biteSpeed: 2
+  fishType: 
 --- !u!54 &756971193
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1317,6 +1319,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &756971196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756971187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b702a7b1ba54c749cf00fb6d1b1c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishDecider
 --- !u!1 &820519333
 GameObject:
   m_ObjectHideFlags: 0

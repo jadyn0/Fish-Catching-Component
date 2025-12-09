@@ -15,7 +15,8 @@ public class FishAI : MonoBehaviour
     public float swimRayDistance;
     public Rigidbody rb;
     public FishingTrigger fishingTrigger;
-    public Rod rod;
+    //public Rod rod;
+    public FishDecider fishDecider;
     public float maxSwimSpeed;
     public float minSwimSpeed;
     public float maxTurnSpeed;
@@ -31,16 +32,14 @@ public class FishAI : MonoBehaviour
     public bool caught = false;
     public bool failed = false;
     public float biteSpeed = 0.5f;
+    public string fishType;
 
 
     private Transform target;
     void Start()
     {
+        fishType = fishDecider.RandomFish();
         StartCoroutine(Swim());
-    }
-    void Update()
-    {
-
     }
     private IEnumerator RodDetect()
     {
@@ -84,6 +83,7 @@ public class FishAI : MonoBehaviour
         {
             if (caught == true)
             {
+                Debug.Log(fishType);
                 Destroy(gameObject);
             }
             if (failed == true)

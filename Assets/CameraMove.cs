@@ -7,7 +7,7 @@ public class CameraMove : MonoBehaviour
     Vector3 velocity;
 
     private const float YMin = -50.0f;
-    private const float YMax = 50.0f;
+    private const float YMax = 70.0f;
     public Transform player;
     public Transform self;
     public LayerMask layerMask;
