@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//code from https://medium.com/@kshesho/unity-how-to-create-a-weighted-loot-table-3bcbf478eaf9  
 public class FishDecider : MonoBehaviour
 {
 
