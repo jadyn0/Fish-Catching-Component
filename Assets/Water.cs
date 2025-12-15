@@ -34,4 +34,12 @@ public class MonsterSpawner : MonoBehaviour
             Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("fish"))
+        {
+            Debug.Log("fish");
+        }
+    }
 }

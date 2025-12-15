@@ -12,10 +12,10 @@ public class FishAI : MonoBehaviour
     public bool canSwim = true;
     public bool isBiting = false;
     public LayerMask layerMask;
+    public LayerMask bobberMask;
     public float swimRayDistance;
     public Rigidbody rb;
-    public FishingTrigger fishingTrigger;
-    //public Rod rod;
+    public Rod rod;
     public FishDecider fishDecider;
     public float maxSwimSpeed;
     public float minSwimSpeed;
@@ -54,7 +54,7 @@ public class FishAI : MonoBehaviour
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 15);
-            if (fishingTrigger.isToucingFish == false)
+            if (!rod.isToucingFish())
             {
                 rb.AddRelativeForce(Vector3.forward * biteSpeed);
                 yield return null;
@@ -73,6 +73,8 @@ public class FishAI : MonoBehaviour
                     yield return new WaitForSeconds(biteInterval);
                 }
             }
+            
+            
         }
     }
     private IEnumerator Bite()

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 398678234799752917}
   m_Layer: 0
   m_Name: Fish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,9 +138,13 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  bobberMask:
+    serializedVersion: 2
+    m_Bits: 0
   swimRayDistance: 3
   rb: {fileID: 1344207949682738950}
   fishingTrigger: {fileID: 0}
+  bobber: {fileID: 0}
   fishDecider: {fileID: 398678234799752917}
   maxSwimSpeed: 5
   minSwimSpeed: 2

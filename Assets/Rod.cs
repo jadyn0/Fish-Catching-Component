@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Rod : MonoBehaviour
 {
-    public FishingTrigger fishingTrigger;
+    public LayerMask waterMask;
+    public LayerMask fishMask;
     public FishAI fishAI;
     public PlayerMovement playermovement;
     public GameObject bobber;
@@ -16,7 +17,7 @@ public class Rod : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (fishingTrigger.canFish == true && !isCasted)
+            if (CanFish() && !isCasted)
             {
                 Cast();
             }
@@ -40,6 +41,34 @@ public class Rod : MonoBehaviour
                     Uncast();
                 }
             }
+        }
+    }
+
+    bool CanFish()
+    {
+        Debug.DrawRay(transform.position + new Vector3(0, 10, 0), transform.TransformDirection(Vector3.down) * 100, Color.yellow);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + new Vector3(0, 10, 0), transform.TransformDirection(Vector3.down), out hit, 100, waterMask))
+        {
+            return true;
+            
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool isToucingFish()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + new Vector3(0, 10, 0), transform.TransformDirection(Vector3.down), out hit, 100, fishMask))
+        {
+            return true;
+            
+        }
+        else
+        {
+            return false;
         }
     }
 
