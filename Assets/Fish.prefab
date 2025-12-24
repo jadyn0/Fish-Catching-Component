@@ -137,14 +137,13 @@ MonoBehaviour:
   isBiting: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   bobberMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   swimRayDistance: 3
   rb: {fileID: 1344207949682738950}
-  fishingTrigger: {fileID: 0}
-  bobber: {fileID: 0}
+  rod: {fileID: 0}
   fishDecider: {fileID: 398678234799752917}
   maxSwimSpeed: 5
   minSwimSpeed: 2
@@ -178,7 +177,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -253,7 +252,7 @@ GameObject:
   - component: {fileID: 3546933399484082032}
   - component: {fileID: 5455849934388135255}
   - component: {fileID: 2279917320748194842}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FishBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

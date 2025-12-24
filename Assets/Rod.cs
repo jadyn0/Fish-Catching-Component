@@ -7,7 +7,6 @@ public class Rod : MonoBehaviour
 {
     public LayerMask waterMask;
     public LayerMask fishMask;
-    public FishAI fishAI;
     public PlayerMovement playermovement;
     public GameObject bobber;
     public Collider bobberCollider;
@@ -23,23 +22,7 @@ public class Rod : MonoBehaviour
             }
             else if (isCasted == true)
             {
-                if (fishAI.isDetectingRod == true)
-                {
-                    if (fishAI.isBiting == true)
-                    {
-                        Catch();
-                        Uncast();
-                    }
-                    else
-                    {
-                        Fail();
-                        Uncast();
-                    }
-                }
-                else
-                {
-                    Uncast();
-                }
+               Uncast();
             }
         }
     }
@@ -86,14 +69,6 @@ public class Rod : MonoBehaviour
         bobber.GetComponent<MeshRenderer>().enabled = false;
         bobberCollider.enabled = false;
         playermovement.isFishing = false;
-    }
-    void Catch()
-    {
-        fishAI.caught = true;
-    }
-    void Fail()
-    {
-        fishAI.failed = true;
     }
 }
 

@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
-public class MonsterSpawner : MonoBehaviour
+public class FishSpawner : MonoBehaviour
  {
     public float fishPosY;
-    public GameObject fishPrefab;                // Enemy prefab to spawn
+    public FishAI fishPrefab;                // Enemy prefab to spawn
+    public Rod rod;
     
     public int minFishPerBatch = 3;            // Minimum number of enemies per batch
     public int maxFishPerBatch = 6;            // Maximum number of enemies per batch
@@ -20,26 +21,33 @@ public class MonsterSpawner : MonoBehaviour
     }
     private IEnumerator SpawnFish()
     {
+        while(true){
+        GameObject[] fishInPond;
+        fishInPond = GameObject.FindGameObjectsWithTag("Fish");
+        if (fishInPond.Length <= 1)
+        {
+            int fishToSpawn = Random.Range(minFishPerBatch, maxFishPerBatch);
+            for (int i = 0; i < fishToSpawn; i++)
+            {
+                Vector3 spawnOffset = Random.insideUnitSphere * spawnBatchRadius;
+                Vector3 spawnPosition = (Vector3)gameObject.transform.position + spawnOffset;
+                spawnPosition.y = fishPosY;
+
+                FishAI newFish = Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
+                newFish.rod = rod;
+            }
+        }
         float interval = Random.Range(minSpawnInterval, maxSpawnInterval);
         yield return new WaitForSeconds(interval);
-
-        int fishToSpawn = Random.Range(minFishPerBatch, maxFishPerBatch);
-
-        for (int i = 0; i < fishToSpawn; i++)
-        {
-            Vector3 spawnOffset = Random.insideUnitCircle * spawnBatchRadius;
-            Vector3 spawnPosition = (Vector3)gameObject.transform.position + spawnOffset;
-            spawnPosition.y = fishPosY;
-
-            Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("fish"))
+        if (other.CompareTag("Fish"))
         {
-            Debug.Log("fish");
+            Debug.Log("Fish");
         }
     }
 }

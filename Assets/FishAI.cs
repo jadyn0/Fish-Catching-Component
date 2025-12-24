@@ -46,8 +46,9 @@ public class FishAI : MonoBehaviour
         float maxBites = Random.Range(0.5f, 4f);
         while (true && isDetectingRod && !isBiting)
         {
-            if (failed == true)
+            if (!rod.isCasted)
             {
+                Debug.Log("Failed");
                 Destroy(gameObject);
             }
             var lookPos = target.position - transform.position;                     // code taken from https://discussions.unity.com/t/making-an-object-rotate-to-face-another-object/27560
@@ -83,13 +84,14 @@ public class FishAI : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         for (float countdown = 1f; countdown >= 0; countdown -= 0.1f)
         {
-            if (caught == true)
+            if (!rod.isCasted)
             {
                 Debug.Log(fishType);
                 Destroy(gameObject);
             }
             if (failed == true)
             {
+                Debug.Log("Failed");
                 Destroy(gameObject);
             }
             Flop();
@@ -151,7 +153,7 @@ public class FishAI : MonoBehaviour
             {
                 RaycastHit hit;
                                                                             // Does the ray intersect ground
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, swimRayDistance, layerMask))
+                if (Physics.SphereCast(transform.position, 0.5f, transform.TransformDirection(Vector3.forward), out hit, swimRayDistance, layerMask))
                 {
                     canSwim = false;
                 }
