@@ -410,8 +410,8 @@ MonoBehaviour:
   distance: 10
   maxZoom: 15
   minZoom: 2
-  zoomSpeed: 100
-  sensivity: 100
+  zoomSpeed: 750
+  sensivity: 300
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

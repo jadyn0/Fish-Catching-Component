@@ -15,7 +15,7 @@ public class CameraMove : MonoBehaviour
     public float distance = 10.0f;
     public float maxZoom = 15;
     public float minZoom = 2;
-    public float zoomSpeed = 100f;
+    public float zoomSpeed = 500f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     private Vector3 direction;
@@ -23,14 +23,14 @@ public class CameraMove : MonoBehaviour
 
     void LateUpdate()
     {
-        distance = Mathf.Clamp(distance + Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * Time.deltaTime, minZoom, maxZoom);
+        distance = Mathf.Clamp(distance + Input.GetAxis("Mouse ScrollWheel") * -zoomSpeed * Time.deltaTime, minZoom, maxZoom);
 
         currentX += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
         currentY = Mathf.Clamp(currentY, YMin, YMax);
 
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        Quaternion rotation = Quaternion.Euler(-currentY, currentX, 0);
         Vector3 lookDirection = player.position - self.position;
         float d = distance;
 
