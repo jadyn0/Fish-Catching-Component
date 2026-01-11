@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class FishSpawner : MonoBehaviour
  {
-    public float fishPosY;
+    public float fishPosY = -0.17f;
     public FishAI fishPrefab;                // Enemy prefab to spawn
     public Rod rod;
     
@@ -10,10 +10,10 @@ public class FishSpawner : MonoBehaviour
     public int maxFishPerBatch = 6;            // Maximum number of enemies per batch
 
     
-    public float minSpawnInterval = 3f;           // Minimum interval between spawns
-    public float maxSpawnInterval = 5f;           // Maximum interval between spawns
+    public float minSpawnInterval = 10f;           // Minimum interval between spawns
+    public float maxSpawnInterval = 20f;           // Maximum interval between spawns
     
-    public float spawnBatchRadius = 2f;           // Radius within which enemies will be spawned in each batch
+    public float spawnBatchRadius = 4f;           // Radius within which enemies will be spawned in each batch
 
     public void Start()
     {

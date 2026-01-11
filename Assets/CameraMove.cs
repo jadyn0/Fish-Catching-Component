@@ -15,11 +15,11 @@ public class CameraMove : MonoBehaviour
     public float distance = 10.0f;
     public float maxZoom = 15;
     public float minZoom = 2;
-    public float zoomSpeed = 500f;
+    public float zoomSpeed = 750f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     private Vector3 direction;
-    public float sensivity = 100f;
+    public float sensivity = 300f;
 
     void LateUpdate()
     {

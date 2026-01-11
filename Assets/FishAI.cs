@@ -13,19 +13,19 @@ public class FishAI : MonoBehaviour
     public bool isBiting = false;
     public LayerMask layerMask;
     public LayerMask bobberMask;
-    public float swimRayDistance;
+    public float swimRayDistance = 3f;
     public Rigidbody rb;
     public Rod rod;
     public FishDecider fishDecider;
-    public float maxSwimSpeed;
-    public float minSwimSpeed;
-    public float maxTurnSpeed;
-    public float minTurnSpeed;
+    public float maxSwimSpeed = 5f;
+    public float minSwimSpeed = 2f;
+    public float maxTurnSpeed = 0.7f;
+    public float minTurnSpeed = -0.7f;
 
     public int biteCount;
-    public float turnMove;
-    public float turnTurn;
-    public float forward;
+    public float turnMove = 3f;
+    public float turnTurn = 0.5f;
+    public float forward = 0.722f;
     public bool left = true;
     private bool first = true;
 
