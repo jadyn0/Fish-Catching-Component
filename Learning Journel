@@ -1,0 +1,18 @@
+Learning Journel
+
+20.10.2025
+I created my Github repository and learning journel. 
+The Readme couldn't be edited on GitHub Desktop so i had to open the website to create the learning journel.
+
+21.10.2025
+I created a movement component in unity in which i can build all of my other components off of. 
+The project had the new input system enabled whereas I was using code for the old inuput system, after researching I decided to change the project to the old input system rather than trying to make my code work with the new input system.
+When trying to program the jump, it wasn't working but i realised that i had forgottern to call the jumpPlayer function in update.
+
+28.10.2025
+I finished building the physics based movement component.
+i was having trouble adding sprinting in, as i was using GetKeyDown rather than GetKey, which only made the player sprint whent he key was initially pressed instead of consistantly sprinting.
+When trying to upload the project to GitHub i accidentally created the repository folder inside of the project folder, so i had to remake the repository and correctly create it within the folder that the project was in, so that the game will be inside the repository.
+
+02.11.2025
+I started designing my second component, fishing. I needed to have a system that detects whether the player can fish or not depending on whether they are facing water. at first i tried to do this with a collision detector but i struggled to get it to work, so instead i decided to use rays to detect water, and originally tried to create a ray coming off the rod, but decided instead to place an object as a child of the player where the fishing bobber will spawn, and created a downward facing ray with a water layer mask to detect whether there was water directly below it or not.
