@@ -27,6 +27,50 @@ I started working on the second component, making objects spawn. I had trouble g
 I struggled to understand how coroutines worked. I fixed the game crashing by ensuring that the coroutine would always return a result, and made sure there wasn't multiple loops within it.
 
 13.11.2025
+The random spawn position was spawning in a random 3D plane within a certain radius, and i wanted it to spawn into a 2D plane with the Y position always being the same. I fixed this by creating a new variable in which i set the pre determined Y position. I got confused whether I should create the spawn position as a Vector 2 or 3, but after Vector 2 did not work, I makde it a random Vector 3 and changed the Y value after.
 
+15.11.2025
+I finished working on the spawning component.
+I fine tuned all the values, so it was exactly how i wanted it to be
 
+20.11.2025
+I started working on the fish AI component.
+My first step was to get the movement in, I was having trouble with coroutines again, so i decided to make it return a wait of a random number of seconds at the start, so it will always return something. I then fine tuned the swimming distance.
+
+22.11.2025
+I wanted to add rays so that the fish did not swim into a wall or the player. This was not working, but i realised I had included the water in the layer mask, so the ray was always detecting water.
+
+25.11.2025
+I added a random chance for the fish to turn. When the fish reached a wall and could not swim it would wait until the random chance for it to turn happened which could take a while, so i added an if statement making the fish always turn if it is facing a wall.
+
+27.11.2025
+I finished the fish AI.
+the fish movement looked quit rigid, so i made it turn a small amount when it swam to make it feel more natural.
+
+1.12.2025
+I started working on the fish decider.
+I had no idea how i would make this work, and started by adding this code into the fish AI function, but then realised it would be better to make it its own function.
+
+5.12.2025
+I worked on the fish decider. 
+I had problems trying to get the two scripts to interact, but i had forgotten to assign the decider script to the fish AI script.
+
+7.12.2025
+I finished the fish decider.
+
+14.12.2025
+I started the fishing prototype.
 I started designing my second component, fishing. I needed to have a system that detects whether the player can fish or not depending on whether they are facing water. at first i tried to do this with a collision detector but i struggled to get it to work, so instead i decided to use rays to detect water, and originally tried to create a ray coming off the rod, but decided instead to place an object as a child of the player where the fishing bobber will spawn, and created a downward facing ray with a water layer mask to detect whether there was water directly below it or not.
+the bobber would get the players movement to freak out when it spawned, so i removed its hitbox, and made it visual only until the player is fishing, and disabled player movement whilst they are fishing
+
+3.1.2026
+I worked on getting the fish to detect the bobbber. i tried using raycasts at first, but this was not working, so i created a new object as a child of the fish, and made it the size of the hitbox that the fish would detect the rod. Then i made it so that if the hitbox and the rod collide, the fish will start a new coroutine to bite the bobber.
+
+4.1.2026
+I struggled to get the fish to slowly look at the bobber, so i used a lookrotation function and vector3.Slerp to make the fish slowly turn to face the bobber rather than instantly facing it. Again i forgot to make the coroutine always return something, so i fixed this by making it return null on the if statements.
+
+5.1.2026
+For the biting animation, the fish wouldnt move back and forth properly, so i created a boolean to ensure that it would interchangably move left and right.
+
+6.1.2026
+I struggled to make the fish spawning work, as when i made it a prefab, the assigned scripts would dissapear. eventually i realised that i had to assign these in the fish spawning script when i made the fish spawn in, rather than having them there from the start
